@@ -59,4 +59,11 @@ EOT
 systemctl enable nginx
 systemctl start nginx
 
+# increase the size of the patition to 4gb
+df -h /tmp
+mount | grep /tmp
+sudo mount -o remount,size=4G /tmp
+sudo systemctl restart jenkins
+
+
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
